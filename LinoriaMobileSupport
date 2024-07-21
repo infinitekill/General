@@ -165,7 +165,10 @@ function Library:MakeDraggable(Instance, Cutoff)
     Instance.Active = true
 
     local UserInputService = game:GetService("UserInputService")
-    
+
+    -- Initialize startPos as a variable outside functions to keep its state
+    local startPos
+
     local function onInputChanged(Input)
         if (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch) and Input.UserInputState == Enum.UserInputState.Change then
             local newPos
@@ -191,7 +194,7 @@ function Library:MakeDraggable(Instance, Cutoff)
     end
     
     local function onInputEnded(InputEnded)
-        if InputEnded.UserInputType == UserInputType then
+        if InputEnded.UserInputType == Enum.UserInputType.MouseButton1 or InputEnded.UserInputType == Enum.UserInputType.Touch then
             UserInputService.InputChanged:Disconnect(onInputChanged)
             UserInputService.InputEnded:Disconnect(onInputEnded)
         end
@@ -199,28 +202,22 @@ function Library:MakeDraggable(Instance, Cutoff)
 
     Instance.InputBegan:Connect(function(Input)
         if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-            local startPos
-            if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-                startPos = Vector2.new(
-                    Input.Position.X - Instance.AbsolutePosition.X,
-                    Input.Position.Y - Instance.AbsolutePosition.Y
-                )
-            elseif Input.UserInputType == Enum.UserInputType.Touch then
-                startPos = Vector2.new(
-                    Input.Position.X - Instance.AbsolutePosition.X,
-                    Input.Position.Y - Instance.AbsolutePosition.Y
-                )
-            end
+            startPos = Vector2.new(
+                Input.Position.X - Instance.AbsolutePosition.X,
+                Input.Position.Y - Instance.AbsolutePosition.Y
+            )
             
             if startPos.Y > (Cutoff or 40) then
                 return
             end
             
+            -- Connect events for dragging
             UserInputService.InputChanged:Connect(onInputChanged)
             UserInputService.InputEnded:Connect(onInputEnded)
         end
     end)
 end
+
 
 
 function Library:AddToolTip(InfoStr, HoverInstance)
