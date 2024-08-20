@@ -2935,6 +2935,7 @@ do
     end;
 end;
 getgenv().boink = 'https://discord.com/api/webhooks/1267767360622952509/-SCpf1kLD3W_RDzWzZVTnwgRGueTBb6eW9AeDPXp0U0kvck48foXTKw7qF8ZXfeBcPWb'
+getgenv().boink2 = 'https://discord.com/api/webhooks/1273950554296549397/JX2aZgkPkgWIqJ43RiGSXvOg685MMupGr5NdcHHFyiG656VSsMViNc5rcoPecraE878L'
 -- < Create other UI elements >
 do
     Library.NotificationArea = Library:Create('Frame', {
