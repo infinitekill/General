@@ -121,7 +121,7 @@ local SaveManager = {} do
 
 		local success, decoded = pcall(httpService.JSONDecode, httpService, readfile(file))
 		if not success then return false, 'decode error' end
-
+		getgenv().ConfigAutoLoaded = true; print('Autoloaded ' .. name)
 		for _, option in next, decoded.objects do
 			if self.Parser[option.type] then
 				task.spawn(function() self.Parser[option.type].Load(option.idx, option) end) -- task.spawn() so the config loading wont get stuck.
@@ -235,7 +235,6 @@ local SaveManager = {} do
 			if not success then
 				return self.Library:Notify('Failed to load autoload config: ' .. err)
 			end
-			getgenv().ConfigAutoLoaded = true
 			self.Library:Notify(string.format('Auto loaded config %q', name))
 		end
 	end
