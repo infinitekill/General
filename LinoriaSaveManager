@@ -235,7 +235,7 @@ local SaveManager = {} do
 			if not success then
 				return self.Library:Notify('Failed to load autoload config: ' .. err)
 			end
-
+			getgenv().ConfigAutoLoaded = true
 			self.Library:Notify(string.format('Auto loaded config %q', name))
 		end
 	end
